@@ -11,7 +11,7 @@ class Hadethscreen_details extends StatefulWidget {
 }
 
 class _Hadethscreen_detailsState extends State<Hadethscreen_details> {
-  String hadethh='';
+  List<String> hadethh=[];
   bool flag= true;
 
   @override
@@ -21,7 +21,8 @@ class _Hadethscreen_detailsState extends State<Hadethscreen_details> {
         ?.settings
         .arguments as Hadethindex;
     if (flag ==true){
-      fileload(args.index);}
+      fileload(args.index);
+    }
     return Stack(
       children: [
         Image(image: AssetImage('assets/images/default_bg.png'),
@@ -50,7 +51,7 @@ class _Hadethscreen_detailsState extends State<Hadethscreen_details> {
 
             child: ListView.builder(
               itemBuilder: (context, index) {
-                return Hadethdetails(content: hadethh);
+                return Hadethdetails(content: hadethh[index]);
               },
               itemCount: hadethh.length,
             ),
@@ -63,7 +64,10 @@ class _Hadethscreen_detailsState extends State<Hadethscreen_details> {
     String content = await rootBundle.loadString(
         'assets/file/ahadeth.txt');
     List<String> lines = content.split('#');
-    hadethh = lines[index];
+    String s = lines[index];
+    List<String>cont= s.split('\n');
+    cont.removeAt(0);
+    hadethh=cont;
     setState(() {
     });
     flag=false;
