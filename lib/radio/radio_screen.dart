@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Radioscreen extends StatelessWidget {
   const Radioscreen({super.key});
 
@@ -19,7 +19,7 @@ class Radioscreen extends StatelessWidget {
             vertical: MediaQuery.of(context).size.height*0.04,
             horizontal: MediaQuery.of(context).size.width*0.05,
           ),
-          child: Center(child: Text('إذاعة القرآن الكريم',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w400),),),
+          child: Center(child: Text(AppLocalizations.of(context)!.eza3a,style: TextStyle(fontSize: 25,fontWeight: FontWeight.w400),),),
         ),
         Container(
           margin: EdgeInsets.symmetric(

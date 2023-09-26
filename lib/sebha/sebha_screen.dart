@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Sebha_screen extends StatefulWidget {
 
   @override
@@ -28,7 +28,7 @@ class _Sebha_screenState extends State<Sebha_screen> {
             vertical: MediaQuery.of(context).size.height*0.02,
             horizontal: MediaQuery.of(context).size.width*0.05,
           ),
-          child: Center(child: Text('عدد التسبيحات',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w600),),),
+          child: Center(child: Text(AppLocalizations.of(context)!.sebhanum,style: TextStyle(fontSize: 25,fontWeight: FontWeight.w600),),),
         ),
         Center(
           child: Container(

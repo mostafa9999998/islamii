@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamii/hadeth/hadethscreen_details.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Hadeth_screen extends StatelessWidget {
   List<String> hadethname = List.generate(50, (index) => '${index+1}حديث رقم ');
 
@@ -17,7 +17,7 @@ class Hadeth_screen extends StatelessWidget {
           color: Theme.of(context).primaryColor,
           thickness: 3,
         ),
-        Text('Hadeeth Name',style: Theme.of(context).textTheme.titleMedium,),
+        Text(AppLocalizations.of(context)!.hadeethname,style: Theme.of(context).textTheme.titleMedium,),
         Divider(
           color: Theme.of(context).primaryColor,
           thickness: 3,

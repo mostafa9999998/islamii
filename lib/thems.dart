@@ -32,6 +32,7 @@ static Color whitecolor =Color(0xffF8F8F8);
           fontSize: 22,
         ),
 
+
   ),
 
      bottomNavigationBarTheme: BottomNavigationBarThemeData(

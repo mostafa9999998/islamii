@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islamii/quran/suratext.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Surascreen extends StatelessWidget {
    List<String> suranames =["الفاتحه","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود"
     ,"يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه","الأنبياء","الحج","المؤمنون"
@@ -26,7 +26,7 @@ class Surascreen extends StatelessWidget {
           color: Theme.of(context).primaryColor,
           thickness: 3,
         ),
-        Text('Sura Name',style: Theme.of(context).textTheme.titleMedium,),
+        Text(AppLocalizations.of(context)!.surename,style: Theme.of(context).textTheme.titleMedium,),
         Divider(
           color: Theme.of(context).primaryColor,
           thickness: 3,
