@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamii/quran/suratextdetails.dart';
 import 'package:islamii/thems.dart';
+import 'package:provider/provider.dart';
+
+import '../image path them.dart';
+import '../provider/sitting.dart';
 
 class Sura extends StatefulWidget {
   static String surapage = 'surapage';
@@ -15,6 +19,7 @@ class _SuraState extends State<Sura> {
 
   @override
   Widget build(BuildContext context) {
+    Settingprovider provider= Provider.of(context);
     var args = ModalRoute
         .of(context)
         ?.settings
@@ -23,7 +28,7 @@ class _SuraState extends State<Sura> {
     fileload(args.index);}
     return Stack(
       children: [
-        Image(image: AssetImage('assets/images/default_bg.png'),
+        Image(image: AssetImage((provider.isdark()? Imagepath.darkbackground : Imagepath.lightbackground)),
           fit: BoxFit.fill,
           height: double.infinity,
           width: double.infinity,
@@ -43,7 +48,7 @@ class _SuraState extends State<Sura> {
               vertical: MediaQuery.of(context).size.height*0.1 ,
             ),
             decoration: BoxDecoration(
-                color: Colors.white,
+                color: (provider.isdark()?Mytheme.darkprimary: Mytheme.whitecolor ),
                 borderRadius: BorderRadius.circular(25)
             ),
 

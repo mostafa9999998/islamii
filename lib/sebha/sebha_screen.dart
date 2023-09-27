@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamii/thems.dart';
+import 'package:provider/provider.dart';
+
+import '../image path them.dart';
+import '../provider/sitting.dart';
 class Sebha_screen extends StatefulWidget {
 
   @override
@@ -11,7 +16,7 @@ class _Sebha_screenState extends State<Sebha_screen> {
   String sebhaname ='سبحان الله';
   @override
   Widget build(BuildContext context) {
-
+    Settingprovider provider= Provider.of(context);
     return Column(
       children: [
         Container(
@@ -21,14 +26,14 @@ class _Sebha_screenState extends State<Sebha_screen> {
             vertical: MediaQuery.of(context).size.height*0.06,
             horizontal: MediaQuery.of(context).size.width*0.03,
           ),
-          child: Image(image: AssetImage('assets/images/sebha.png')),
+          child: Image(image: AssetImage((provider.isdark()? Imagepath.darhsebha : Imagepath.lightsebha))),
         ),
         Container(
           margin: EdgeInsets.symmetric(
             vertical: MediaQuery.of(context).size.height*0.02,
             horizontal: MediaQuery.of(context).size.width*0.05,
           ),
-          child: Center(child: Text(AppLocalizations.of(context)!.sebhanum,style: TextStyle(fontSize: 25,fontWeight: FontWeight.w600),),),
+          child: Center(child: Text(AppLocalizations.of(context)!.sebhanum,style: Theme.of(context).textTheme.bodyLarge,),),
         ),
         Center(
           child: Container(
@@ -36,9 +41,9 @@ class _Sebha_screenState extends State<Sebha_screen> {
             height:60 ,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
-                color: Color(0xffB7935F)
+                color: (provider.isdark()? Mytheme.darkprimary : Mytheme.primary),
             ),
-            child:Center(child: Text('$counter',style: TextStyle(fontSize: 25,color: Color(0xff242424),),)),
+            child:Center(child: Text('$counter',style: TextStyle(fontSize: 25,color: (provider.isdark()? Mytheme.whitecolor : Mytheme.blackcolor),),)),
           ),
         ),
         Center(
@@ -47,7 +52,7 @@ class _Sebha_screenState extends State<Sebha_screen> {
             child: ElevatedButton(
               child: Text('$sebhaname',style: TextStyle(color: Colors.white,fontSize:25)),
               style:ElevatedButton.styleFrom(
-                backgroundColor:Color(0xffB7935F) ,
+                backgroundColor:(provider.isdark()? Mytheme.yellowcolor : Mytheme.primary) ,
                 shape: RoundedRectangleBorder(
                  borderRadius: BorderRadius.circular(25))),
               onPressed: () {

@@ -5,6 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Hadeth_screen extends StatelessWidget {
   List<String> hadethname = List.generate(50, (index) => '${index+1}حديث رقم ');
 
+
   Widget build(BuildContext context) {
     return Column(
       children: [

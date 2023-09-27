@@ -2,11 +2,14 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:islamii/hadeth/hadeth_screen.dart';
+import 'package:islamii/image%20path%20them.dart';
+import 'package:islamii/provider/sitting.dart';
 import 'package:islamii/quran/sura_screen.dart';
 import 'package:islamii/radio/radio_screen.dart';
 import 'package:islamii/sebha/sebha_screen.dart';
 import 'package:islamii/setting/setting%20details.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 class Home extends StatefulWidget {
  static String homescreen ='home';
 
@@ -19,9 +22,10 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    Settingprovider provider= Provider.of(context);
     return  Stack(
       children: [
-        Image(image: AssetImage('assets/images/default_bg.png'),
+        Image(image: AssetImage((provider.isdark()? Imagepath.darkbackground : Imagepath.lightbackground)),
           fit: BoxFit.fill,
         height: double.infinity,
         width: double.infinity,
