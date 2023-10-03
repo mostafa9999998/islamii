@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islamii/hadeth/hadethscreen_details.dart';
@@ -9,10 +8,13 @@ import 'package:islamii/thems.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+Future<void> main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+ var provider =Settingprovider();
+ await provider.loading();
   runApp(
        ChangeNotifierProvider(
-           create: (context)=>Settingprovider(),
+           create: (context)=>provider,
            child: Myapp()));
 }
 
@@ -47,4 +49,3 @@ class Myapp extends StatelessWidget {
     );
   }
 }
-
